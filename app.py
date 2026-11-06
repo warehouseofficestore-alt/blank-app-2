@@ -12,15 +12,20 @@ st.write("Bienvenida a la plataforma de predicción y control de calidad. Ingres
 def load_model():
     return joblib.load("AquaCheckModel.pkl")
 
+@st.cache_resource
+def load_model():
+    return joblib.load("AquaCheckModel.pkl")
+
 try:
     model = load_model()
     st.success("¡Modelo cargado correctamente en la nube!")
 except Exception as e:
     st.error(f"No se pudo cargar el modelo: {e}")
     
+    
+    
 
-st.markdown("---")
-st.subheader("Parámetros de Entrada")
+
 
 # Campos de entrada
 feature_1 = st.number_input("Parámetro 1 (Ej: pH / Nivel de turbidez)", value=0.0)
