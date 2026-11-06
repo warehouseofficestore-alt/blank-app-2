@@ -12,10 +12,6 @@ st.write("Bienvenida a la plataforma de predicción y control de calidad. Ingres
 def load_model():
     return joblib.load("AquaCheckModel.pkl")
 
-@st.cache_resource
-def load_model():
-    return joblib.load("AquaCheckModel.pkl")
-
 try:
     model = load_model()
     st.success("¡Modelo cargado correctamente en la nube!")
